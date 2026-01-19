@@ -1,0 +1,34 @@
+export const DATA = [
+	{
+		status: "success",
+		data: {
+			firstName: "John",
+			lastName: "Smith",
+			dob: "1990-01-01",
+		},
+	},
+	{
+		status: "error",
+		error: {
+			code: 404,
+			message: "User not found",
+		},
+	},
+	{
+		status: "success",
+		data: {
+			firstName: "Jane",
+			lastName: "Doe",
+			dob: "1985-05-15",
+		},
+	},
+	{
+		status: "error",
+		error: {
+			code: 500,
+			message: "Internal server error",
+		},
+	},
+] as const;
+
+export default DATA;
