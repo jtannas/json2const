@@ -27,13 +27,13 @@ pnpm add -D json2const
 
 ```bash
 # bun
-bun run json2const <glob-pattern> [--write]]
+bun run json2const <glob-pattern> [--write]
 # npm
-npm run json2const <glob-pattern> [--write]]
+npm run json2const <glob-pattern> [--write]
 # yarn
-yarn json2const <glob-pattern> [--write]]
+yarn json2const <glob-pattern> [--write]
 # pnpm
-pnpm json2const <glob-pattern> [--write]]
+pnpm json2const <glob-pattern> [--write]
 ```
 
 ### Arguments

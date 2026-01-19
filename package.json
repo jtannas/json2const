@@ -1,14 +1,26 @@
 {
 	"name": "json2const",
-	"module": "index.ts",
-	"type": "module",
+	"author": "jtannas",
+	"version": "1.0.0",
+	"description": "A CLI tool to convert JSON files into TypeScript constant declarations.",
+	"main": "index.ts",
+	"license": "MIT",
+	"homepage": "https://github.com/jtannas/json2const",
+	"keywords": [
+		"json",
+		"typescript",
+		"cli",
+		"json-to-ts",
+		"json2const",
+		"const"
+	],
 	"scripts": {
-		"check": "biome check --write",
-		"check:ci": "biome check",
-		"format": "biome format --write",
-		"format:ci": "biome format",
-		"typecheck": "tsc --noEmit",
-		"verify": "bun run check:ci && bun run format:ci && bun run typecheck"
+		"fix": "biome check --fix",
+		"json2const": "biome run index.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jtannas/json2const"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.11",
