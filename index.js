@@ -2,7 +2,7 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { parseArgs } from "node:util";
-import { globSync } from 'glob'
+import { globSync } from "glob";
 import { parse } from "jsonc-parser";
 
 const isValidExtension = (filename) =>

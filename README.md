@@ -12,6 +12,15 @@ $ npm install json2const
 $ npm run json2const <glob-pattern> [--write]
 ```
 
+## Arguments
+- `<glob-pattern>`: A glob pattern of files to process (e.g. `data/*.json`)
+  - Quoted patterns (e.g. `"data/*.json"`) are expanded by Nodes's `globSync` function
+  - Unquoted patterns (e.g. `data/*.json`) are expanded by the shell and are assumed to be valid file paths
+  - Pattern results are then filtered to only include files that end with `.json`/`.jsonc`
+- `--write`: If provided, the generated TypeScript files will be written to disk. If not provided, the generated content will be printed to the console.
+
+Note: No arguments are provided for formatting options. It is recommended to use a code formatter such as Prettier to format the generated files.
+
 ## Description
 
 When importing JSON into TypeScript, the keys are inferred as exact string types but the values are inferred as general types.
@@ -24,14 +33,21 @@ import responses from './responses.json.ts'; //
 type ResponseStatus = (typeof responses)[number]['status']; // "success" | "failure"
 ```
 
-## Arguments
-- `<glob-pattern>`: A glob pattern of files to process (e.g. `data/*.json`)
-  - Quoted patterns (e.g. `"data/*.json"`) are expanded by Nodes's `globSync` function
-  - Unquoted patterns (e.g. `data/*.json`) are expanded by the shell and are assumed to be valid file paths
-  - Pattern results are then filtered to only include files that end with `.json`/`.jsonc`
-- `--write`: If provided, the generated TypeScript files will be written to disk. If not provided, the generated content will be printed to the console.
+The generated TypeScript files have the same name as the input JSON files with a `.ts` extension added.
+e.g. `data.json` -> `data.json.ts`
 
-Note: No arguments are provided for formatting options. It is recommended to use a code formatter such as Prettier to format the generated files.
+They export the JSON content as both a default export and a named export `DATA`.
+e.g. `data.json.ts`
+```ts
+const DATA = { ... } as const;
+export default DATA;
+```
+
+This allows for easy migration from JSON imports to TypeScript imports.
+```diff
+- import responses from './data.json';
++ import responses from './data.json.ts';
+```
 
 ## Examples
 
