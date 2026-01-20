@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 import { globSync, readFileSync, writeFileSync } from "node:fs";
 import { parseArgs } from "node:util";
 import { parse } from "jsonc-parser";
 
-const isValidExtension = (filename: string) =>
+const isValidExtension = (filename) =>
 	filename.endsWith(".json") || filename.endsWith(".jsonc");
 
 //-------- Parse Args
@@ -19,7 +21,7 @@ const { values, positionals } = parseArgs({
 });
 
 //-------- Get files from glob
-let files: string[] = [];
+let files = [];
 if (positionals.length === 0) {
 	console.error("Error: <glob> argument is required");
 	console.error("Usage: npm run json2const [--write] <glob>");

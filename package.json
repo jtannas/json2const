@@ -1,7 +1,7 @@
 {
 	"name": "json2const",
 	"author": "jtannas",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A CLI tool to convert JSON files into TypeScript constant declarations.",
 	"main": "index.ts",
 	"license": "MIT",
@@ -19,7 +19,7 @@
 		"json2const": "biome run index.ts"
 	},
 	"bin": {
-		"json2const": "./index.ts"
+		"json2const": "./index.js"
 	},
 	"repository": {
 		"type": "git",
@@ -27,9 +27,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.11",
-		"@types/bun": "latest"
-	},
-	"peerDependencies": {
+		"@types/bun": "latest",
 		"typescript": "^5"
 	},
 	"dependencies": {
