@@ -18,6 +18,9 @@
 		"fix": "biome check --fix",
 		"json2const": "biome run index.ts"
 	},
+	"bin": {
+		"json2const": "./index.ts"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/jtannas/json2const"
