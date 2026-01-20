@@ -6,9 +6,6 @@ export type RawResponse = (typeof rawData)[number];
 export type RawResponseStatus = RawResponse["status"]; // string
 
 export function handleRawResponse(response: RawResponse) {
-	// The following line would cause a TypeScript error because
-	// rawData does not have the 'as const' assertion
-	// and thus TypeScript cannot narrow the types correctly.
 	if (response.status === "success") {
 		// @ts-expect-error
 		console.log("User First Name:", response.data.firstName);
@@ -23,12 +20,10 @@ export function handleRawResponse(response: RawResponse) {
 }
 
 // Example usage of the generated DATA constant and its type
-export type Response = (typeof safeData)[number];
-export type ResponseStatus = Response["status"]; // "success" | "error"
+export type SafeResponse = (typeof safeData)[number];
+export type SafeResponseStatus = SafeResponse["status"]; // "success" | "error"
 
-export function handleResponse(response: Response) {
-	// Here, TypeScript can correctly narrow the types to see that
-	// when status is "success", data is present, and when status is "error", error is present.
+export function handleResponse(response: SafeResponse) {
 	if (response.status === "success") {
 		console.log("User First Name:", response.data.firstName);
 		console.log("User Last Name:", response.data.lastName);

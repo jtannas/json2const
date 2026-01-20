@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-import { globSync, readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { parseArgs } from "node:util";
+import { globSync } from 'glob'
 import { parse } from "jsonc-parser";
 
 const isValidExtension = (filename) =>

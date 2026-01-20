@@ -1,7 +1,7 @@
 {
 	"name": "json2const",
 	"author": "jtannas",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A CLI tool to convert JSON files into TypeScript constant declarations.",
 	"main": "index.ts",
 	"license": "MIT",
@@ -31,6 +31,7 @@
 		"typescript": "^5"
 	},
 	"dependencies": {
+		"glob": "^13.0.0",
 		"jsonc-parser": "^3.3.1"
 	}
 }
